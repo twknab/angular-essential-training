@@ -15,7 +15,7 @@ import { FavoriteDirective } from './favorite.directive';
     MediaItemComponent,
     MediaItemListComponent,
     FavoriteDirective
-  ], // components go here
+  ], // components, directives and pipes go here
   bootstrap: [
     AppComponent,
   ],

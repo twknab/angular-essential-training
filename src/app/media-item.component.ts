@@ -11,6 +11,7 @@ export class MediaItemComponent {
   watchedOn: number;
   category: string;
   year: number;
+  isFavorite: boolean;
 
 
   constructor() { }
