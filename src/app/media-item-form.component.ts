@@ -1,5 +1,10 @@
 import { Component, OnInit } from "@angular/core";
-import { FormGroup, FormControl, Validators } from "@angular/forms";
+import {
+  FormGroup,
+  FormControl,
+  Validators,
+  FormBuilder,
+} from "@angular/forms";
 
 @Component({
   selector: "media-item-form",
@@ -9,19 +14,21 @@ import { FormGroup, FormControl, Validators } from "@angular/forms";
 export class MediaItemFormComponent implements OnInit {
   form: FormGroup;
 
+  constructor(private formBuilder: FormBuilder) {}
+
   ngOnInit() {
     // Use form groups and form controls to define the models you'll be using
-    this.form = new FormGroup({
-      medium: new FormControl("Movies"),
-      name: new FormControl(
+    this.form = this.formBuilder.group({
+      medium: this.formBuilder.control("Movies"),
+      name: this.formBuilder.control(
         "",
         Validators.compose([
           Validators.required,
           Validators.pattern("[\\w\\-\\s\\/]+"),
         ])
       ),
-      category: new FormControl(""),
-      year: new FormControl("", this.yearValidator),
+      category: this.formBuilder.control(""),
+      year: this.formBuilder.control("", this.yearValidator),
     });
   }
 
