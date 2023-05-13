@@ -7,6 +7,12 @@ import { Component, Input, Output, EventEmitter } from '@angular/core';
 })
 
 export class MediaItemComponent {
+  name: string;
+  watchedOn: number;
+  category: string;
+  year: number;
+
+
   constructor() { }
 
   @Input() mediaItem : MediaItemComponent;
