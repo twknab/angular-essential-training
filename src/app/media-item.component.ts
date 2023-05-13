@@ -3,7 +3,7 @@ import { Component, Input, Output, EventEmitter } from '@angular/core';
 @Component({
   selector: 'media-item',
   templateUrl: 'media-item.component.html',
-  styleUrls: ['./media-item.component.scss',],
+  styleUrls: ['./media-item.component.css',],
 })
 
 export class MediaItemComponent {
