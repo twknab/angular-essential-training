@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'media-item',
@@ -8,6 +8,8 @@ import { Component } from '@angular/core';
 
 export class MediaItemComponent {
   constructor() { }
+
+  @Input() mediaItem : MediaItemComponent;
 
   onDelete() {
     console.log('media item delete event');

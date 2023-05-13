@@ -6,8 +6,16 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./app.component.scss'],
 })
 
-export class AppComponent implements OnInit {
+export class AppComponent {
   constructor() { }
 
-  ngOnInit() { }
+  firstMediaItem = {
+    id: 1,
+    name: "Firebug",
+    medium: "Series",
+    category: "Science Fiction",
+    year: 2010,
+    watchedOn: 1284166565384,
+    isFavorite: false,
+  }
 }
