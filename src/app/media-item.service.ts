@@ -1,3 +1,8 @@
+import { Injectable } from "@angular/core";
+
+@Injectable({
+  providedIn: "root", // This will allow our service to be accessible throughout whole application
+})
 export class MediaItemService {
   mediaItems = [
     {
