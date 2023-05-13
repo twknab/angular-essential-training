@@ -7,6 +7,10 @@ import { Component, OnInit } from '@angular/core';
 })
 
 export class MediaItemComponent implements OnInit {
+  name = "The Redemption"
+  wasWatched() {
+    return true;
+  }
   constructor() { }
 
   ngOnInit() { }
