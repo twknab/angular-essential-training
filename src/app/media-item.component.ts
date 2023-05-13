@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'media-item',
@@ -6,8 +6,10 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./media-item.component.scss',],
 })
 
-export class MediaItemComponent implements OnInit {
+export class MediaItemComponent {
   constructor() { }
 
-  ngOnInit() { }
+  onDelete() {
+    console.log('media item delete event');
+  }
 }
