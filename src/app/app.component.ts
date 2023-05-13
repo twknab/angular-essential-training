@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { MediaItemComponent } from './media-item.component';
 
 @Component({
   selector: 'app-root',
@@ -17,5 +18,9 @@ export class AppComponent {
     year: 2010,
     watchedOn: 1284166565384,
     isFavorite: false,
+  }
+
+  onMediaItemDelete(mediaItem: MediaItemComponent) {
+    console.log("Okay deleting this item:", mediaItem);
   }
 }
