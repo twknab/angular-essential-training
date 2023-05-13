@@ -1,14 +1,13 @@
-import { Component, OnInit } from '@angular/core';
-import { MediaItemComponent } from './media-item.component';
+import { Component, OnInit } from "@angular/core";
+import { MediaItemComponent } from "./media-item.component";
 
 @Component({
-  selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css'],
+  selector: "app-root",
+  templateUrl: "./app.component.html",
+  styleUrls: ["./app.component.css"],
 })
-
 export class AppComponent {
-  constructor() { }
+  constructor() {}
 
   firstMediaItem = {
     id: 1,
@@ -18,7 +17,7 @@ export class AppComponent {
     year: 2010,
     watchedOn: 1284166565384,
     isFavorite: false,
-  }
+  };
 
   onMediaItemDelete(mediaItem: MediaItemComponent) {
     console.log("Okay deleting this item:", mediaItem);
