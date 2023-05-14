@@ -1,4 +1,6 @@
 import { Injectable } from "@angular/core";
+import { HttpClient } from "@angular/common/http";
+import { map } from "rxjs/operators";
 
 @Injectable({
   providedIn: "root", // This will allow our service to be accessible throughout whole application
@@ -52,8 +54,15 @@ export class MediaItemService {
     },
   ];
 
+  constructor(private http: HttpClient) {}
+
+  // This will be on interview
   get() {
-    return this.mediaItems;
+    return this.http.get<MediaItemResponse>("mediaitems").pipe(
+      map((response) => {
+        return response.mediaItems;
+      })
+    );
   }
 
   add(mediaItem) {
@@ -66,4 +75,20 @@ export class MediaItemService {
       this.mediaItems.splice(index, 1);
     }
   }
+}
+
+// This might be on interview
+interface MediaItem {
+  id: number;
+  name: string;
+  medium: string;
+  category: string;
+  year: number;
+  watchedOn: number;
+  isFavorite: boolean;
+}
+
+// Make a type that's a grouping of "MediaItems"
+interface MediaItemResponse {
+  mediaItems: MediaItem[];
 }

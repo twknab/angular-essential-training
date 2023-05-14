@@ -9,7 +9,8 @@ import { FavoriteDirective } from "./favorite.directive";
 import { CategoryListPipe } from "./category-list.pipe";
 import { MediaItemService } from "./media-item.service";
 import { lookupListToken, lookupLists } from "./providers";
-import { HttpClientModule } from "@angular/common/http";
+import { HttpClientModule, HttpXhrBackend } from "@angular/common/http";
+import { MockXHRBackend } from "./mock-xhr-backend";
 
 @NgModule({
   imports: [BrowserModule, ReactiveFormsModule, HttpClientModule],
@@ -29,6 +30,7 @@ import { HttpClientModule } from "@angular/common/http";
     // Using tokens like this is another way to inject a provider, but this is not always best practices
     // Let's refactor to use a Injection Token that is better practices
     { provide: lookupListToken, useValue: lookupLists },
+    { provide: HttpXhrBackend, useClass: MockXHRBackend },
   ],
 })
 export class AppModule {}

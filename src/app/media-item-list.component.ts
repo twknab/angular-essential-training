@@ -13,7 +13,12 @@ export class MediaItemListComponent implements OnInit {
 
   ngOnInit() {
     // Runs get method on our MediaItemService, sets it to `this.mediaItems`
-    this.mediaItems = this.mediaItemService.get();
+    this.mediaItemService
+      .get()
+      // Can take 3 callback argumentse, next, error and execution
+      .subscribe((mediaItems) => {
+        this.mediaItems = mediaItems;
+      });
   }
 
   onMediaItemDelete(mediaItem) {
