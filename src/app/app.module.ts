@@ -8,10 +8,7 @@ import { MediaItemListComponent } from "./media-item-list.component";
 import { FavoriteDirective } from "./favorite.directive";
 import { CategoryListPipe } from "./category-list.pipe";
 import { MediaItemService } from "./media-item.service";
-
-const lookupLists = {
-  mediums: ["Movies", "Series"],
-};
+import { lookupListToken, lookupLists } from "./providers";
 
 @NgModule({
   imports: [BrowserModule, ReactiveFormsModule],
@@ -28,7 +25,9 @@ const lookupLists = {
   // The `provide` property adds a custom provider injection to populate drop down
   providers: [
     MediaItemService,
-    { provide: "lookupListToken", useValue: lookupLists },
+    // Using tokens like this is another way to inject a provider, but this is not always best practices
+    // Let's refactor to use a Injection Token that is better practices
+    { provide: lookupListToken, useValue: lookupLists },
   ],
 })
 export class AppModule {}

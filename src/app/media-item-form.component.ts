@@ -6,6 +6,7 @@ import {
   FormBuilder,
 } from "@angular/forms";
 import { MediaItemService } from "./media-item.service";
+import { lookupListToken } from "./providers";
 
 @Component({
   selector: "media-item-form",
@@ -18,7 +19,7 @@ export class MediaItemFormComponent implements OnInit {
   constructor(
     private formBuilder: FormBuilder,
     private mediaItemService: MediaItemService,
-    @Inject("lookupListToken") public lookupLists
+    @Inject(lookupListToken) public lookupLists // Best practices is to use a injection token rather than hardcoded string
   ) {}
 
   ngOnInit() {
