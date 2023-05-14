@@ -9,9 +9,10 @@ import { FavoriteDirective } from "./favorite.directive";
 import { CategoryListPipe } from "./category-list.pipe";
 import { MediaItemService } from "./media-item.service";
 import { lookupListToken, lookupLists } from "./providers";
+import { HttpClientModule } from "@angular/common/http";
 
 @NgModule({
-  imports: [BrowserModule, ReactiveFormsModule],
+  imports: [BrowserModule, ReactiveFormsModule, HttpClientModule],
   exports: [],
   declarations: [
     AppComponent,
