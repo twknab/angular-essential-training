@@ -9,6 +9,10 @@ import { FavoriteDirective } from "./favorite.directive";
 import { CategoryListPipe } from "./category-list.pipe";
 import { MediaItemService } from "./media-item.service";
 
+const lookupLists = {
+  mediums: ["Movies", "Series"],
+};
+
 @NgModule({
   imports: [BrowserModule, ReactiveFormsModule],
   exports: [],
@@ -21,6 +25,10 @@ import { MediaItemService } from "./media-item.service";
     MediaItemFormComponent,
   ], // components, directives and pipes go here
   bootstrap: [AppComponent],
-  providers: [MediaItemService],
+  // The `provide` property adds a custom provider injection to populate drop down
+  providers: [
+    MediaItemService,
+    { provide: "lookupListToken", useValue: lookupLists },
+  ],
 })
 export class AppModule {}
