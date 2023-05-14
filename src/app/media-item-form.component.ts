@@ -5,6 +5,7 @@ import {
   Validators,
   FormBuilder,
 } from "@angular/forms";
+import { MediaItemService } from "./media-item.service";
 
 @Component({
   selector: "media-item-form",
@@ -14,7 +15,10 @@ import {
 export class MediaItemFormComponent implements OnInit {
   form: FormGroup;
 
-  constructor(private formBuilder: FormBuilder) {}
+  constructor(
+    private formBuilder: FormBuilder,
+    private mediaItemService: MediaItemService
+  ) {}
 
   ngOnInit() {
     // Use form groups and form controls to define the models you'll be using
@@ -54,5 +58,6 @@ export class MediaItemFormComponent implements OnInit {
 
   onSubmit(mediaItem) {
     console.log(mediaItem);
+    this.mediaItemService.add(mediaItem);
   }
 }
