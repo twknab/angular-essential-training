@@ -57,8 +57,11 @@ export class MediaItemService {
   constructor(private http: HttpClient) {}
 
   // This will be on interview
-  get() {
-    return this.http.get<MediaItemResponse>("mediaitems").pipe(
+  get(medium: string) {
+    const getOptions = {
+      params: { medium },
+    };
+    return this.http.get<MediaItemResponse>("mediaitems", getOptions).pipe(
       map((response) => {
         return response.mediaItems;
       })
@@ -78,7 +81,7 @@ export class MediaItemService {
 }
 
 // This might be on interview
-interface MediaItem {
+export interface MediaItem {
   id: number;
   name: string;
   medium: string;
