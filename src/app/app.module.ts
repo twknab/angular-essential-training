@@ -10,10 +10,9 @@ import { lookupListToken, lookupLists } from "./providers";
 import { HttpClientModule, HttpXhrBackend } from "@angular/common/http";
 import { MockXHRBackend } from "./mock-xhr-backend";
 import { routing } from "./app.routing";
-import { NewItemModule } from "./new-item/new-item.module";
 
 @NgModule({
-  imports: [BrowserModule, HttpClientModule, routing, NewItemModule],
+  imports: [BrowserModule, HttpClientModule, routing],
   exports: [],
   declarations: [
     AppComponent,
