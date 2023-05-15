@@ -5,6 +5,7 @@ import {
   Validators,
   FormBuilder,
 } from "@angular/forms";
+import { Router } from "@angular/router";
 import { MediaItemService } from "./media-item.service";
 import { lookupListToken } from "./providers";
 
@@ -19,7 +20,8 @@ export class MediaItemFormComponent implements OnInit {
   constructor(
     private formBuilder: FormBuilder,
     private mediaItemService: MediaItemService,
-    @Inject(lookupListToken) public lookupLists // Best practices is to use a injection token rather than hardcoded string
+    @Inject(lookupListToken) public lookupLists, // Best practices is to use a injection token rather than hardcoded string
+    private router: Router
   ) {}
 
   ngOnInit() {
@@ -60,6 +62,9 @@ export class MediaItemFormComponent implements OnInit {
 
   onSubmit(mediaItem) {
     console.log(mediaItem);
-    this.mediaItemService.add(mediaItem);
+    this.mediaItemService.add(mediaItem).subscribe(() => {
+      // First paramater is base parameter, the second value is the route parameter
+      this.router.navigate(["/", mediaItem.medium]);
+    });
   }
 }
