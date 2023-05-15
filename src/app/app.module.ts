@@ -1,9 +1,7 @@
 import { NgModule } from "@angular/core";
 import { BrowserModule } from "@angular/platform-browser";
-import { ReactiveFormsModule } from "@angular/forms";
 import { AppComponent } from "./app.component";
 import { MediaItemComponent } from "./media-item.component";
-import { MediaItemFormComponent } from "./new-item/media-item-form.component";
 import { MediaItemListComponent } from "./media-item-list.component";
 import { FavoriteDirective } from "./favorite.directive";
 import { CategoryListPipe } from "./category-list.pipe";
@@ -12,9 +10,10 @@ import { lookupListToken, lookupLists } from "./providers";
 import { HttpClientModule, HttpXhrBackend } from "@angular/common/http";
 import { MockXHRBackend } from "./mock-xhr-backend";
 import { routing } from "./app.routing";
+import { NewItemModule } from "./new-item/new-item.module";
 
 @NgModule({
-  imports: [BrowserModule, ReactiveFormsModule, HttpClientModule, routing],
+  imports: [BrowserModule, HttpClientModule, routing, NewItemModule],
   exports: [],
   declarations: [
     AppComponent,
@@ -22,7 +21,6 @@ import { routing } from "./app.routing";
     MediaItemListComponent,
     FavoriteDirective,
     CategoryListPipe,
-    MediaItemFormComponent,
   ], // components, directives and pipes go here
   bootstrap: [AppComponent],
   // The `provide` property adds a custom provider injection to populate drop down
