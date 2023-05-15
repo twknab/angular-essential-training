@@ -1,5 +1,5 @@
 import { Routes, RouterModule } from "@angular/router";
-import { MediaItemFormComponent } from "./media-item-form.component";
+import { MediaItemFormComponent } from "./new-item/media-item-form.component";
 import { MediaItemListComponent } from "./media-item-list.component";
 
 const appRoutes: Routes = [

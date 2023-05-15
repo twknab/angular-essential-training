@@ -6,8 +6,8 @@ import {
   FormBuilder,
 } from "@angular/forms";
 import { Router } from "@angular/router";
-import { MediaItemService } from "./media-item.service";
-import { lookupListToken } from "./providers";
+import { MediaItemService } from "../media-item.service";
+import { lookupListToken } from "../providers";
 
 @Component({
   selector: "media-item-form",
