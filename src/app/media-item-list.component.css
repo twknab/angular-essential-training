@@ -5,6 +5,10 @@
   padding: 10px;
 }
 
+.category-list {
+  flex: 1 100%;
+}
+
 header {
   color: #c6c5c3;
 }
